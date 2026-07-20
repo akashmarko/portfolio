@@ -1,0 +1,35 @@
+[
+  {
+    "id": "nids",
+    "name": "Network Intrusion Detection",
+    "description": "Built a Network Intrusion Detection System using IBM watsonx.ai AutoAI to train and compare ML models on the NSL-KDD dataset. The best-performing model was deployed via a Streamlit dashboard that visualises live traffic classifications in real time.",
+    "tags": ["Python", "IBM watsonx.ai", "AutoAI", "Streamlit", "Machine Learning", "Cybersecurity"],
+    "links": {
+      "github": "https://github.com/akashmarko/network-intrusion-detection.git",
+      "demo": "https://akashmarko-network-intrusion-detection.streamlit.app"
+    },
+    "screenshot": "/static/assets/screenshots/nids.png"
+  },
+  {
+    "id": "csba",
+    "name": "Customer Shopping Behavior Analysis",
+    "description": "Performed end-to-end exploratory data analysis on a retail transactions dataset. Uncovered purchase patterns, seasonal trends, and customer segments using Python (Pandas, NumPy) and visualised findings in an interactive Tableau dashboard.",
+    "tags": ["Python", "Pandas", "NumPy", "Tableau", "EDA", "Data Visualisation"],
+    "links": {
+      "github": "https://github.com/akashmarko/Customer_shopping_behavior_analysis.git",
+      "demo": "[PLACEHOLDER: demo url for Customer Shopping Behavior project]"
+    },
+    "screenshot": "/static/assets/screenshots/csba.png"
+  },
+  {
+    "id": "geldium-ai-collections",
+    "name": "Geldium AI Collections System",
+    "description": "Designed an AI-powered debt collections strategy for a fictional fintech, Geldium, as part of the Tata GenAI Data Analytics simulation. Delivered a comprehensive case study and PowerPoint deck covering propensity modelling, ethical AI guardrails, and KPI frameworks.",
+    "tags": ["Generative AI", "Data Analytics", "Power BI", "Case Study", "Fintech"],
+    "links": {
+      "github": "[PLACEHOLDER: github url for Geldium AI Collections project]",
+      "demo": "[PLACEHOLDER: demo url for Geldium AI Collections project]"
+    },
+    "screenshot": "/static/assets/screenshots/geldium.png"
+  }
+]

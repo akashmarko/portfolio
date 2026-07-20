@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akash Marko | Portfolio</title>
+  <!-- Style (imports Inter from Google Fonts internally; SF Pro used on macOS) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     PORTRAIT ORIENTATION OVERLAY (shown on portrait phones via CSS)
+════════════════════════════════════════════════════════════════════════════ -->
+<div id="rotate-overlay" aria-hidden="true">
+  <div class="rotate-content">
+    <div class="rotate-icon">⟳</div>
+    <p class="rotate-title">Rotate Your Device</p>
+    <p class="rotate-sub">This portfolio is best experienced in landscape orientation.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     MENU BAR
+════════════════════════════════════════════════════════════════════════════ -->
+<header id="menu-bar" role="banner">
+  <!-- Left: name + Window menu -->
+  <div class="menu-left">
+    <!-- [PLACEHOLDER: your full name] -->
+    <span id="menu-name">Akash Marko</span>
+
+    <!-- "Window" dropdown menu -->
+    <div class="menu-item-wrap" id="window-menu-wrap">
+      <button class="menu-btn" id="window-menu-btn" aria-haspopup="true" aria-expanded="false">
+        Window
+      </button>
+      <ul class="dropdown-menu" id="window-dropdown" role="menu" aria-label="Window menu">
+        <li role="menuitem"><button data-menu-action="bring-all-front">Bring All to Front</button></li>
+        <li role="menuitem"><button data-menu-action="minimize-all">Minimize All</button></li>
+        <li role="menuitem"><button data-menu-action="close-all">Close All Windows</button></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Right: battery, date, time -->
+  <div class="menu-right">
+    <!-- Battery icon (decorative SVG) -->
+    <svg class="battery-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Battery">
+      <rect x="2" y="7" width="18" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M20 10h2v4h-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <rect x="4" y="9" width="11" height="6" rx="1" fill="currentColor"/>
+    </svg>
+    <time id="clock-date" aria-label="Date">--</time>
+    <time id="clock-time" aria-label="Time">--:--:--</time>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     DESKTOP
+════════════════════════════════════════════════════════════════════════════ -->
+<main id="desktop" role="main">
+  
+  <!-- Status badge -->
+ <!--   
+  <div id="status-badge" role="status" aria-live="polite">
+    <span class="status-dot" aria-hidden="true"></span>
+    <span class="status-text">Available for Work</span>
+    <span class="status-tagline">Data Analytics &amp; ML</span>
+  </div> -->
+
+  <!-- ── Desktop icon grid ───────────────────────────────────────────────── -->
+  <div id="desktop-icons" role="list" aria-label="Desktop icons">
+
+    <!-- Resume.pdf icon -->
+    <div class="icon-item" role="listitem" data-opens="win-resume" tabindex="0"
+         aria-label="Resume PDF — double-click to open">
+      <div class="icon-img icon-pdf">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="2" width="28" height="36" rx="3" fill="#E8F4FF" stroke="#5B9BD5" stroke-width="2"/>
+          <rect x="6" y="2" width="19" height="36" rx="3" fill="#D0E8FF"/>
+          <path d="M28 2 L34 8 L28 8 Z" fill="#5B9BD5"/>
+          <rect x="28" y="2" width="6" height="6" rx="1" fill="#5B9BD5"/>
+          <text x="12" y="30" font-size="7" fill="#E74C3C" font-family="sans-serif" font-weight="bold">PDF</text>
+          <line x1="11" y1="20" x2="28" y2="20" stroke="#5B9BD5" stroke-width="1.5"/>
+          <line x1="11" y1="24" x2="25" y2="24" stroke="#5B9BD5" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <span class="icon-label">Resume.pdf</span>
+    </div>
+
+    <!-- Certifications icon -->
+    <div class="icon-item" role="listitem" data-opens="win-certs" tabindex="0"
+         aria-label="Certifications folder — double-click to open">
+      <div class="icon-img icon-folder icon-folder-blue">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 12 Q4 8 8 8 L20 8 L24 12 L40 12 Q44 12 44 16 L44 38 Q44 42 40 42 L8 42 Q4 42 4 38 Z" fill="#74B9FF"/>
+          <path d="M4 18 L44 18 L44 38 Q44 42 40 42 L8 42 Q4 42 4 38 Z" fill="#4A90E2"/>
+        </svg>
+      </div>
+      <span class="icon-label">Certifications</span>
+    </div>
+
+    <!-- Projects icon -->
+    <div class="icon-item" role="listitem" data-opens="win-projects" tabindex="0"
+         aria-label="Projects folder — double-click to open">
+      <div class="icon-img icon-folder icon-folder-blue">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 12 Q4 8 8 8 L20 8 L24 12 L40 12 Q44 12 44 16 L44 38 Q44 42 40 42 L8 42 Q4 42 4 38 Z" fill="#74B9FF"/>
+          <path d="M4 18 L44 18 L44 38 Q44 42 40 42 L8 42 Q4 42 4 38 Z" fill="#4A90E2"/>
+        </svg>
+      </div>
+      <span class="icon-label">Projects</span>
+    </div>
+
+    <!-- Skills icon -->
+    <div class="icon-item" role="listitem" data-opens="win-skills" tabindex="0"
+         aria-label="Skills folder — double-click to open">
+      <div class="icon-img icon-folder icon-folder-blue">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 12 Q4 8 8 8 L20 8 L24 12 L40 12 Q44 12 44 16 L44 38 Q44 42 40 42 L8 42 Q4 42 4 38 Z" fill="#74B9FF"/>
+          <path d="M4 18 L44 18 L44 38 Q44 42 40 42 L8 42 Q4 42 4 38 Z" fill="#4A90E2"/>
+        </svg>
+      </div>
+      <span class="icon-label">Skills</span>
+    </div>
+
+    <!-- About Me icon -->
+    <div class="icon-item" role="listitem" data-opens="about-me-multi" tabindex="0"
+         aria-label="About Me folder — double-click to open">
+      <div class="icon-img icon-folder icon-folder-blue">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 12 Q4 8 8 8 L20 8 L24 12 L40 12 Q44 12 44 16 L44 38 Q44 42 40 42 L8 42 Q4 42 4 38 Z" fill="#74B9FF"/>
+          <path d="M4 18 L44 18 L44 38 Q44 42 40 42 L8 42 Q4 42 4 38 Z" fill="#4A90E2"/>
+          <!-- person silhouette -->
+          <circle cx="24" cy="28" r="5" fill="white" opacity="0.85"/>
+          <path d="M14 40 Q14 34 24 34 Q34 34 34 40" fill="white" opacity="0.85"/>
+        </svg>
+      </div>
+      <span class="icon-label">About Me</span>
+    </div>
+
+  </div><!-- /#desktop-icons -->
+
+  <!-- ── Right sidebar widgets ─────────────────────────────────────────────── -->
+  <aside id="right-sidebar" aria-label="Widgets">
+
+    <!-- Weather widget -->
+    <div class="widget glass-card" id="widget-weather" aria-label="Weather widget">
+      <div class="widget-header">
+        <span class="widget-icon"></span>
+        <span class="widget-title">Weather</span>
+        <span class="weather-location" id="weather-location">Locating…</span>
+      </div>
+      <div class="weather-main">
+        <span class="weather-temp" id="weather-temp">--°</span>
+        <span class="weather-desc" id="weather-desc">--</span>
+      </div>
+      <div class="weather-details">
+        <span><span class="label">💧</span> <span id="weather-humidity">--%</span></span>
+        <span><span class="label">💨</span> <span id="weather-wind">-- km/h</span></span>
+      </div>
+    </div>
+
+    <!-- Music widget -->
+    <div class="widget glass-card" id="widget-music" aria-label="Music player widget">
+      <div class="widget-header">
+        <span class="widget-icon"></span>
+        <span class="widget-title">Now Playing</span>
+      </div>
+      <!-- Disc + track info row -->
+      <div class="music-body">
+        <div class="music-disc" id="music-disc" aria-hidden="true">
+          <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="28" cy="28" r="27" fill="#1a1a2e" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+            <circle cx="28" cy="28" r="20" fill="#2d2d4e"/>
+            <circle cx="28" cy="28" r="13" fill="#1a1a2e"/>
+            <circle cx="28" cy="28" r="6"  fill="#3a3a5e"/>
+            <circle cx="28" cy="28" r="2.5" fill="rgba(255,255,255,0.6)"/>
+            <!-- groove rings -->
+            <circle cx="28" cy="28" r="24" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+            <circle cx="28" cy="28" r="17" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+            <!-- colour arc
+            <path d="M28 4 A24 24 0 0 1 52 28" fill="none" stroke="var(--sky-deep)" stroke-width="2.5" stroke-linecap="round"/>
+             -->
+          </svg>
+        </div>
+        <div class="music-track-info">
+          <p class="music-title" id="music-title">Blinding Lights</p>
+          <p class="music-artist" id="music-artist">The Weeknd</p>
+        </div>
+      </div>
+      <div class="music-progress-wrap">
+        <div class="music-progress-bar">
+          <div class="music-progress-fill" id="music-progress-fill"></div>
+        </div>
+        <div class="music-times">
+          <span id="music-current">0:00</span>
+          <span id="music-total">0:00</span>
+        </div>
+      </div>
+      <div class="music-controls" role="group" aria-label="Playback controls">
+        <button class="music-btn" id="music-prev" aria-label="Previous track">⏮</button>
+        <button class="music-btn music-btn-main" id="music-play" aria-label="Play or pause">▶</button>
+        <button class="music-btn" id="music-next" aria-label="Next track">⏭</button>
+      </div>
+      <!-- Hidden audio element -->
+      <audio id="audio-player" preload="none"></audio>
+    </div>
+
+    <!-- Awards / Certifications preview widget 
+    <div class="widget glass-card" id="widget-awards" aria-label="Certifications widget">
+      <div class="widget-header">
+        <span class="widget-icon">🏆</span>
+        <span class="widget-title">Certifications</span>
+      </div>
+      <ul class="award-list" role="list">
+        <li class="award-item" role="listitem">
+          <div class="award-badge award-google">G</div>
+          <div class="award-info">
+            <p class="award-name">Google Data Analytics</p>
+            <p class="award-issuer">Professional Certificate</p>
+          </div>
+        </li>
+        <li class="award-item" role="listitem">
+          <div class="award-badge award-tata">T</div>
+          <div class="award-info">
+            <p class="award-name">Tata GenAI Analytics</p>
+            <p class="award-issuer">Forage Job Simulation</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    -->
+  </aside><!-- /#right-sidebar -->
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       WINDOWS — all hidden by default
+  ══════════════════════════════════════════════════════════════════════════ -->
+
+  <!-- About Me.txt window -->
+  <div class="window hidden" id="win-about" data-window-id="win-about" role="dialog"
+       aria-label="About Me" aria-modal="true">
+    <div class="win-titlebar" role="toolbar" aria-label="Window controls">
+      <div class="traffic-lights">
+        <button class="tl-btn btn-close" aria-label="Close window" data-win="win-about"></button>
+        <button class="tl-btn btn-min"   aria-label="Minimise window" data-win="win-about"></button>
+        <button class="tl-btn btn-max"   aria-label="Maximise window" data-win="win-about"></button>
+      </div>
+      <span class="win-title">About Me.txt</span>
+    </div>
+    <div class="win-body" id="win-about-body">
+      <!-- Content injected by script.js Sub-Task 7 -->
+    </div>
+  </div>
+
+  <!-- Skills.txt window -->
+  <div class="window hidden" id="win-skills" data-window-id="win-skills" role="dialog"
+       aria-label="Skills" aria-modal="true">
+    <div class="win-titlebar" role="toolbar" aria-label="Window controls">
+      <div class="traffic-lights">
+        <button class="tl-btn btn-close" aria-label="Close window" data-win="win-skills"></button>
+        <button class="tl-btn btn-min"   aria-label="Minimise window" data-win="win-skills"></button>
+        <button class="tl-btn btn-max"   aria-label="Maximise window" data-win="win-skills"></button>
+      </div>
+      <span class="win-title">Skills.txt</span>
+    </div>
+    <div class="win-body" id="win-skills-body">
+      <!-- Content injected by script.js Sub-Task 7 -->
+    </div>
+  </div>
+
+  <!-- Personal Photo window -->
+  <div class="window hidden" id="win-photo" data-window-id="win-photo" role="dialog"
+       aria-label="Personal Photo" aria-modal="true">
+    <div class="win-titlebar" role="toolbar" aria-label="Window controls">
+      <div class="traffic-lights">
+        <button class="tl-btn btn-close" aria-label="Close window" data-win="win-photo"></button>
+        <button class="tl-btn btn-min"   aria-label="Minimise window" data-win="win-photo"></button>
+        <button class="tl-btn btn-max"   aria-label="Maximise window" data-win="win-photo"></button>
+      </div>
+      <span class="win-title">Photo</span>
+    </div>
+    <div class="win-body win-body-photo">
+      <!-- [PLACEHOLDER: personal photo] -->
+      <img
+        src="/static/assets/image/pic.jpg"
+        alt="Akash Marko"
+        class="photo-img"
+        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23c3d9f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-family=\'sans-serif\' font-size=\'14\' fill=\'%23456\' text-anchor=\'middle\' dominant-baseline=\'middle\'%3EPhoto Placeholder%3C/text%3E%3C/svg%3E'"
+      />
+    </div>
+  </div>
+
+  <!-- Certifications window -->
+  <div class="window hidden" id="win-certs" data-window-id="win-certs" role="dialog"
+       aria-label="Certifications" aria-modal="true">
+    <div class="win-titlebar" role="toolbar" aria-label="Window controls">
+      <div class="traffic-lights">
+        <button class="tl-btn btn-close" aria-label="Close window" data-win="win-certs"></button>
+        <button class="tl-btn btn-min"   aria-label="Minimise window" data-win="win-certs"></button>
+        <button class="tl-btn btn-max"   aria-label="Maximise window" data-win="win-certs"></button>
+      </div>
+      <span class="win-title">Certifications</span>
+    </div>
+    <div class="win-body" id="win-certs-body">
+      <!-- Content injected by script.js Sub-Task 7 -->
+    </div>
+  </div>
+
+  <!-- Projects finder window -->
+  <div class="window window-finder hidden" id="win-projects" data-window-id="win-projects"
+       role="dialog" aria-label="Projects" aria-modal="true">
+    <div class="win-titlebar" role="toolbar" aria-label="Window controls">
+      <div class="traffic-lights">
+        <button class="tl-btn btn-close" aria-label="Close window" data-win="win-projects"></button>
+        <button class="tl-btn btn-min"   aria-label="Minimise window" data-win="win-projects"></button>
+        <button class="tl-btn btn-max"   aria-label="Maximise window" data-win="win-projects"></button>
+      </div>
+      <span class="win-title">Projects</span>
+    </div>
+    <!-- Finder toolbar -->
+    <div class="finder-toolbar">
+      <span class="finder-path">📁 Projects</span>
+    </div>
+    <div class="win-body win-body-finder" id="win-projects-body">
+      <!-- Project folder icons injected by script.js Sub-Task 6 -->
+      <p class="finder-loading">Loading projects…</p>
+    </div>
+  </div>
+
+  <!-- Resume window -->
+  <div class="window window-resume hidden" id="win-resume" data-window-id="win-resume" role="dialog"
+       aria-label="Resume" aria-modal="true">
+    <div class="win-titlebar" role="toolbar" aria-label="Window controls">
+      <div class="traffic-lights">
+        <button class="tl-btn btn-close" aria-label="Close window" data-win="win-resume"></button>
+        <button class="tl-btn btn-min"   aria-label="Minimise window" data-win="win-resume"></button>
+        <button class="tl-btn btn-max"   aria-label="Maximise window" data-win="win-resume"></button>
+      </div>
+      <span class="win-title">Resume.pdf</span>
+    </div>
+    <!-- Toolbar with download button -->
+    <div class="resume-toolbar">
+      <span class="resume-toolbar-name">📄 Akash Marko — Resume.pdf</span>
+      <a href="/static/assets/files/resume.pdf" class="btn-download btn-download-sm"
+         target="_blank" rel="noopener" download>⬇ Download</a>
+    </div>
+    <div class="win-body win-body-resume-preview">
+      <iframe
+        src="/static/assets/files/resume.pdf"
+        class="resume-iframe"
+        title="Resume PDF Preview"
+        aria-label="Resume PDF Preview">
+        <!-- Fallback if iframe is blocked -->
+        <div class="resume-inner">
+          <div class="resume-icon-large">📄</div>
+          <h2 class="resume-name">Akash Marko — Resume</h2>
+          <a href="/static/assets/files/resume.pdf" class="btn-download" target="_blank" rel="noopener">
+            Download Resume.pdf
+          </a>
+          <p class="resume-note">PDF preview not available in your browser. Click Download to open it.</p>
+        </div>
+      </iframe>
+    </div>
+  </div>
+
+</main><!-- /#desktop -->
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     DOCK
+════════════════════════════════════════════════════════════════════════════ -->
+<nav id="dock" role="navigation" aria-label="Dock">
+  <div id="dock-inner">
+
+    <!-- About Me -->
+    <div class="dock-item" data-action="open-about-multi" tabindex="0"
+         aria-label="About Me" role="button">
+      <div class="dock-icon dock-icon-aboutme">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="22" fill="#A29BFE"/>
+          <circle cx="24" cy="18" r="7" fill="white"/>
+          <path d="M8 42 Q8 30 24 30 Q40 30 40 42" fill="white"/>
+        </svg>
+      </div>
+      <span class="dock-label">About Me</span>
+    </div>
+
+    <!-- Photo -->
+    <div class="dock-item" data-action="open-photo" tabindex="0"
+         aria-label="Personal Photo" role="button">
+      <div class="dock-icon dock-icon-photo">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <rect width="48" height="48" rx="10" fill="#74B9FF"/>
+          <circle cx="24" cy="22" r="9" fill="white" opacity="0.9"/>
+          <rect x="6" y="8" width="36" height="32" rx="4" fill="none" stroke="white" stroke-width="2"/>
+          <circle cx="38" cy="12" r="3" fill="#FFD700"/>
+        </svg>
+      </div>
+      <span class="dock-label">Photo</span>
+    </div>
+
+    <!-- GitHub -->
+    <!-- [PLACEHOLDER: GitHub profile URL] -->
+    <div class="dock-item" data-action="open-url"
+         data-url="https://github.com/akashmarko"
+         tabindex="0" aria-label="GitHub profile" role="button">
+      <div class="dock-icon dock-icon-github">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="22" fill="#1a1a2e"/>
+          <path d="M24 8C15.16 8 8 15.16 8 24c0 7.08 4.59 13.09 10.95 15.21.8.15 1.09-.35 1.09-.77 0-.38-.01-1.39-.02-2.73-4.45.97-5.39-2.14-5.39-2.14-.73-1.85-1.78-2.34-1.78-2.34-1.45-.99.11-.97.11-.97 1.6.11 2.44 1.64 2.44 1.64 1.43 2.45 3.75 1.74 4.66 1.33.15-1.04.56-1.74 1.02-2.14-3.55-.4-7.28-1.77-7.28-7.9 0-1.74.62-3.17 1.64-4.29-.16-.4-.71-2.03.16-4.23 0 0 1.34-.43 4.38 1.63A15.3 15.3 0 0 1 24 16.3a15.3 15.3 0 0 1 3.98.54c3.04-2.06 4.38-1.63 4.38-1.63.87 2.2.32 3.83.16 4.23 1.02 1.12 1.64 2.55 1.64 4.29 0 6.14-3.74 7.49-7.3 7.89.57.49 1.08 1.47 1.08 2.96 0 2.14-.02 3.87-.02 4.39 0 .42.29.93 1.1.77C35.42 37.08 40 31.07 40 24c0-8.84-7.16-16-16-16z" fill="white"/>
+        </svg>
+      </div>
+      <span class="dock-label">GitHub</span>
+    </div>
+
+    <!-- LinkedIn -->
+    <!-- [PLACEHOLDER: LinkedIn profile URL] -->
+    <div class="dock-item" data-action="open-url"
+         data-url="https://www.linkedin.com/in/akash-marko"
+         tabindex="0" aria-label="LinkedIn profile" role="button">
+      <div class="dock-icon dock-icon-linkedin">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <rect width="48" height="48" rx="8" fill="#0077B5"/>
+          <text x="10" y="34" font-size="26" font-family="sans-serif" font-weight="bold" fill="white">in</text>
+        </svg>
+      </div>
+      <span class="dock-label">LinkedIn</span>
+    </div>
+
+    <!-- Email -->
+    <!-- [PLACEHOLDER: email address] -->
+    <div class="dock-item" data-action="open-url"
+         data-url="mailto:akashmarko40@gamil.com"
+         tabindex="0" aria-label="Send email" role="button">
+      <div class="dock-icon dock-icon-email">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <rect width="48" height="48" rx="8" fill="#EA4335"/>
+          <path d="M8 14 L24 27 L40 14" stroke="white" stroke-width="2" fill="none"/>
+          <rect x="8" y="14" width="32" height="22" rx="2" fill="none" stroke="white" stroke-width="2"/>
+        </svg>
+      </div>
+      <span class="dock-label">Email</span>
+    </div>
+
+    <!-- Trash (easter egg — no window) -->
+    <div class="dock-item" data-action="trash-easter-egg" tabindex="0"
+         aria-label="Trash" role="button">
+      <div class="dock-icon dock-icon-trash" id="trash-icon">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" id="trash-svg">
+          <rect x="12" y="16" width="24" height="26" rx="3" fill="#BDC3C7" stroke="#95A5A6" stroke-width="1.5"/>
+          <!-- lid -->
+          <rect x="8" y="12" width="32" height="5" rx="2" fill="#95A5A6" id="trash-lid"/>
+          <!-- handle -->
+          <path d="M19 12 V9 Q19 7 21 7 L27 7 Q29 7 29 9 V12" fill="#95A5A6"/>
+          <!-- lines on bin -->
+          <line x1="18" y1="22" x2="18" y2="36" stroke="#7F8C8D" stroke-width="1.5"/>
+          <line x1="24" y1="22" x2="24" y2="36" stroke="#7F8C8D" stroke-width="1.5"/>
+          <line x1="30" y1="22" x2="30" y2="36" stroke="#7F8C8D" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <span class="dock-label">Trash</span>
+    </div>
+
+    <!-- Minimized windows tray (injected by JS) -->
+    <div id="dock-minimized-tray" aria-label="Minimized windows" role="list"></div>
+
+  </div><!-- /#dock-inner -->
+</nav><!-- /#dock -->
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     TOAST NOTIFICATION
+════════════════════════════════════════════════════════════════════════════ -->
+<div id="toast" role="alert" aria-live="assertive" aria-atomic="true"></div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
