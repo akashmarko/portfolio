@@ -1005,24 +1005,39 @@ function injectCertsContent() {
   body.innerHTML = `
     <div>
       <div class="cert-card">
-        <div class="cert-badge cert-badge-google"></div>
+        <div class="cert-badge cert-badge-google">
+        <img src="/static/assets/icons/google.png" alt="Googlet">
+        </div>
         <div class="cert-info">
           <h4>Google Data Analytics Professional Certificate</h4>
-          <p>Issued by Google via Coursera. Covers the full data analysis process:
-             ask, prepare, process, analyse, share, and act.</p>
+           <div class="project-links">
+          <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/7NKC8HG5X88W"
+            class="project-link"
+             target="_blank" rel="noopener"
+             title="">
+            Credential ↗
+          </a>
+        </div>
           <!-- [PLACEHOLDER: certificate date or credential link] -->
           <span class="cert-date">Issuer: Google · Platform: Coursera</span>
         </div>
       </div>
       <div class="cert-card">
-        <div class="cert-badge cert-badge-tata"></div>
+        <div class="cert-badge cert-badge-tata">
+        <img src="/static/assets/icons/powerbi.png" alt="DataCamp">
+        </div>
         <div class="cert-info">
-          <h4>Tata GenAI Data Analytics Job Simulation</h4>
-          <p>Completed Tata Group's GenAI-powered data analytics simulation on
-             Forage. Delivered a full case study on AI-driven collections strategy
-             for a fictional fintech (Geldium).</p>
+          <h4>Microsoft Power BI Fundamentals</h4>
+           <div class="project-links">
+          <a href="https://www.datacamp.com/statement-of-accomplishment/track/34bd646d11ef09f631843442ae6a6b7b1c43b08e?raw=1"
+            class="project-link"
+             target="_blank" rel="noopener"
+             title="">
+            Credential ↗
+          </a>
+        </div>
           <!-- [PLACEHOLDER: certificate date or credential link] -->
-          <span class="cert-date">Issuer: Tata Group · Platform: Forage</span>
+          <span class="cert-date">Issuer: DataCamp · Platform: DataCamp</span>
         </div>
       </div>
     </div>
