@@ -1005,7 +1005,7 @@ function injectCertsContent() {
   body.innerHTML = `
     <div>
       <div class="cert-card">
-        <div class="cert-badge cert-badge-google">🎓</div>
+        <div class="cert-badge cert-badge-google"></div>
         <div class="cert-info">
           <h4>Google Data Analytics Professional Certificate</h4>
           <p>Issued by Google via Coursera. Covers the full data analysis process:
@@ -1015,7 +1015,7 @@ function injectCertsContent() {
         </div>
       </div>
       <div class="cert-card">
-        <div class="cert-badge cert-badge-tata">🏢</div>
+        <div class="cert-badge cert-badge-tata"></div>
         <div class="cert-info">
           <h4>Tata GenAI Data Analytics Job Simulation</h4>
           <p>Completed Tata Group's GenAI-powered data analytics simulation on
