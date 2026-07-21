@@ -636,15 +636,16 @@ function initWeather() {
  */
 const PLAYLIST = [
   {
-    title:  'In the sea',   // e.g. 'Blinding Lights'
-    artist: 'Kensuke ushio',          // e.g. 'The Weeknd'
-    src:    '/static/assets/audio/in_the_sea_kensuke_ushio.mp3',
-  },
-  {
     title:  'Ahead of Us',   // e.g. 'Blinding Lights'
     artist: 'Akira Kosemura',          // e.g. 'The Weeknd'
     src:    '/static/assets/audio/ahead_of_us_Akira_Kosemura.mp3',
   },
+  {
+    title:  'In the sea',   // e.g. 'Blinding Lights'
+    artist: 'Kensuke ushio',          // e.g. 'The Weeknd'
+    src:    '/static/assets/audio/in_the_sea_kensuke_ushio.mp3',
+  },
+
 ];
 
 let currentTrackIdx = 0;
