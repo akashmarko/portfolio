@@ -1,6 +1,6 @@
-/* ============================================================================
+/*
    script.js — Portfolio Desktop OS
-   ─────────────────────────────────────────────────────────────────────────────
+   
    SECTION INDEX
    ── SECTION: Constants & State
    ── SECTION: Window Manager (open / close / minimize / restore / z-index)
@@ -16,11 +16,11 @@
    ── SECTION: Trash Easter Egg
    ── SECTION: Cloud Decoration
    ── SECTION: Init
-   ============================================================================ */
+   */
 
 'use strict';
 
-// ── SECTION: Constants & State ───────────────────────────────────────────────
+// SECTION: Constants & State
 
 /** Base URL for the API (same origin when served via FastAPI). */
 const API_BASE = '';
@@ -37,7 +37,7 @@ let iconClickTimer = null;
 /** Currently selected desktop icon element. */
 let selectedIcon = null;
 
-// ── SECTION: Window Manager ───────────────────────────────────────────────────
+// SECTION: Window Manager
 
 /**
  * Register a window element with the window manager.
@@ -227,7 +227,7 @@ function centreWindow(el) {
   el.style.top  = Math.max(20, (dh - wh) / 4) + 'px';
 }
 
-/* ── Dock open-indicator helpers ─────────────────────────────────────────── */
+/* Dock open-indicator helpers */
 function updateDockIndicator(id, isOpen) {
   const actionMap = {
     'win-about':    'open-about-multi',
@@ -272,7 +272,7 @@ function getWindowTitle(id) {
   return el?.querySelector('.win-title')?.textContent || id;
 }
 
-// ── SECTION: Drag ──────────────────────────────────────────────────────────
+// SECTION: Drag
 
 /**
  * Make a .window draggable by its .win-titlebar.
@@ -346,13 +346,13 @@ function initDrag(winEl) {
   titlebar.addEventListener('touchend', onEnd, { passive: true });
 }
 
-// ── SECTION: Desktop Icons ─────────────────────────────────────────────────
+// SECTION: Desktop Icons
 
 /**
  * Wire up desktop icon grid:
- *   - single click  → select (highlight)
- *   - double click  → open window (or multi-window for About Me)
- *   - keyboard Enter → same as double click
+ *   - single click: select (highlight)
+ *   - double click: open window (or multi-window for About Me)
+ *   - keyboard Enter: same as double click
  */
 function initDesktopIcons() {
   const grid = document.getElementById('desktop-icons');
@@ -417,7 +417,7 @@ function clearIconSelection() {
   selectedIcon = null;
 }
 
-// ── SECTION: Dock Buttons ──────────────────────────────────────────────────
+// SECTION: Dock Buttons
 
 /**
  * Wire dock button actions via data-action attribute event delegation.
@@ -457,7 +457,7 @@ function initDock() {
   });
 }
 
-// ── SECTION: Menu Bar (Window menu + clock) ────────────────────────────────
+// SECTION: Menu Bar (Window menu + clock)
 
 /**
  * "Window" dropdown menu toggle and action handlers.
@@ -532,7 +532,7 @@ function initClock() {
   setInterval(update, 1000);
 }
 
-// ── SECTION: Weather Widget ────────────────────────────────────────────────
+// SECTION: Weather Widget
 
 /** WMO weather code → human-readable description + emoji */
 const WMO_CODES = {
@@ -628,21 +628,20 @@ function initWeather() {
   }, 10 * 60 * 1000);
 }
 
-// ── SECTION: Music Widget ──────────────────────────────────────────────────
+// SECTION: Music Widget
 
 /**
  * Playlist definition.
- * [PLACEHOLDER: replace with real track titles, artists, and audio file paths]
  */
 const PLAYLIST = [
   {
-    title:  'Ahead of Us',   // e.g. 'Blinding Lights'
-    artist: 'Akira Kosemura',          // e.g. 'The Weeknd'
+    title:  'Ahead of Us',   
+    artist: 'Akira Kosemura',          
     src:    '/static/assets/audio/ahead_of_us_Akira_Kosemura.mp3',
   },
   {
-    title:  'In the sea',   // e.g. 'Blinding Lights'
-    artist: 'Kensuke ushio',          // e.g. 'The Weeknd'
+    title:  'In the sea',   
+    artist: 'Kensuke ushio',         
     src:    '/static/assets/audio/in_the_sea_kensuke_ushio.mp3',
   },
 
@@ -738,11 +737,11 @@ function initMusic() {
   loadTrack(0);
 }
 
-// ── SECTION: Projects Finder ───────────────────────────────────────────────
+// SECTION: Projects Finder
 
 /**
  * Fetch projects from /api/projects; fall back to projects.json if the
- * server is not running (e.g. pure static file hosting).
+ * server is not running (static file hosting).
  * @returns {Promise<Array>}
  */
 async function fetchProjects() {
@@ -925,7 +924,7 @@ async function initProjectsFinder() {
   });
 }
 
-// ── SECTION: Window Content ────────────────────────────────────────────────
+// SECTION: Window Content
 
 /** Inject all static window bodies. */
 function initWindowContent() {
@@ -1044,7 +1043,7 @@ function injectCertsContent() {
   `;
 }
 
-// ── SECTION: About Me Multi-Window ─────────────────────────────────────────
+// SECTION: About Me Multi-Window
 
 /**
  * Open the three "About Me" windows simultaneously with a cascade effect.
@@ -1076,7 +1075,7 @@ function openAboutMeMulti() {
   });
 }
 
-// ── SECTION: Trash Easter Egg ──────────────────────────────────────────────
+// SECTION: Trash Easter Egg
 
 /**
  * Wiggle the trash icon, animate the lid, show a dismissable toast.
@@ -1094,8 +1093,7 @@ function trashEasterEgg() {
   showToast('Nothing to throw away… yet 🗑️');
 }
 
-// ── SECTION: Toast ─────────────────────────────────────────────────────────
-
+// SECTION: Toast
 let toastTimer = null;
 
 /**
@@ -1112,8 +1110,7 @@ function showToast(msg, ms = 2500) {
   toastTimer = setTimeout(() => toast.classList.remove('show'), ms);
 }
 
-// ── SECTION: Cloud Decoration ──────────────────────────────────────────────
-
+// SECTION: Cloud Decoration
 /**
  * Inject extra CSS cloud layers for depth.
  * Uses a handful of randomised sizes, heights, and durations.
@@ -1122,7 +1119,7 @@ function initClouds() {
   // Clouds removed — wallpaper is shown without animated cloud overlays
 }
 
-// ── SECTION: Desktop Icon Drag ──────────────────────────────────────────────
+// SECTION: Desktop Icon Drag
 
 /**
  * Make every .icon-item in #desktop-icons individually draggable.
@@ -1137,10 +1134,10 @@ function initIconDrag() {
   const desktop = document.getElementById('desktop');
 
   // Base column position matches the original #desktop-icons CSS (left:40, top:60).
-  // Each icon slot is ~108px tall (cell + gap). A small seeded jitter is applied
+  // Each icon slot is 108px tall (cell + gap). A small seeded jitter is applied
   // per-icon so icons look naturally scattered rather than rigidly aligned.
   const GRID_LEFT = 160;
-  const GRID_TOP  = 118; /* 28px menu bar + 90px original offset */
+  const GRID_TOP  = 118; // 28px menu bar + 90px original offset
   const SLOT_H    = 108; // cell height + row-gap
   const JITTER_X  = 90;  // max horizontal drift  (px)
   const JITTER_Y  = 10;  // max vertical drift    (px)
@@ -1267,7 +1264,7 @@ function initIconDrag() {
   });
 }
 
-// ── SECTION: Init ──────────────────────────────────────────────────────────
+// SECTION: Init
 
 document.addEventListener('DOMContentLoaded', () => {
 
